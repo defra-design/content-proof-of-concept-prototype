@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Enter a topic area – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/find-review-content" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Enter a topic area",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, trade, importing animals or fishing."
+        },
+        id: "reviewTopic",
+        name: "reviewTopic"
+      }) }}
+
+      {{ govukButton({
+        text: "Find content"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

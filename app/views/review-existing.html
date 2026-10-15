@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review existing content – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/review-content-type" method="post">
+
+      {{ govukRadios({
+        name: "reviewContentType",
+        fieldset: {
+          legend: {
+            text: "What content do you want to review?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "topic",
+            text: "A topic area"
+          },
+          {
+            value: "urls",
+            text: "Specific GOV.UK pages"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

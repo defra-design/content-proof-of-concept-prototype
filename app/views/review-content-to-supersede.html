@@ -1,0 +1,218 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review content that may be superseded – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">
+      Content that may be superseded
+    </span>
+
+    <h1 class="govuk-heading-l">
+      Import fish from the EU
+    </h1>
+
+    <p class="govuk-body-l">
+      This existing GOV.UK page is highly similar to the content you are
+      working on and may no longer be needed if your content is published or updated.
+    </p>
+
+    <div class="govuk-inset-text">
+      Similarity does not necessarily mean this page should be removed.
+      Review the evidence and decide whether your content would replace it.
+    </div>
+
+    <h2 class="govuk-heading-m">
+      Why this page was flagged
+    </h2>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Similarity</dt>
+        <dd class="govuk-summary-list__value">High</dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Semantic similarity</dt>
+        <dd class="govuk-summary-list__value">0.93</dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Body-copy overlap</dt>
+        <dd class="govuk-summary-list__value">
+          4 potentially duplicated passages
+        </dd>
+      </div>
+
+    </dl>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Why the content appears similar
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>both are aimed at businesses importing fish into Great Britain</li>
+      <li>both address the same user need</li>
+      <li>both describe health certification requirements</li>
+      <li>both cover notifications and border controls</li>
+      <li>they contain similar steps for importers</li>
+    </ul>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Body-copy overlap
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>4 potentially duplicated passages were identified</li>
+      <li>the longest matching passage contains 31 words</li>
+    </ul>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Compare the content
+    </h2>
+
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h3 class="govuk-summary-card__title">
+          Your content
+        </h3>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <p class="govuk-body">
+          Draft guidance
+        </p>
+        <p class="govuk-body">
+          Covers requirements for importing fish and fish products into
+          Great Britain, including certification, notifications and border controls.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h3 class="govuk-summary-card__title">
+          Existing GOV.UK page
+        </h3>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Page</dt>
+            <dd class="govuk-summary-list__value">Import fish from the EU</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Last meaningful update</dt>
+            <dd class="govuk-summary-list__value">June 2021</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Document type</dt>
+            <dd class="govuk-summary-list__value">Guidance</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Usage category</dt>
+            <dd class="govuk-summary-list__value">Low</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Usage measure</dt>
+            <dd class="govuk-summary-list__value">Unique page views</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Reporting period</dt>
+            <dd class="govuk-summary-list__value">Last 12 months</dd>
+          </div>
+
+        </dl>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">View page on GOV.UK</a>
+        </p>
+
+      </div>
+
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Supporting context
+    </h2>
+
+    <p class="govuk-body">
+      This page has low usage based on unique page views over the last 12 months
+      and was last meaningfully updated in 2021.
+    </p>
+
+    <p class="govuk-body">
+      These signals can help prioritise review, but do not determine whether
+      the page is superseded.
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <form action="/complete-content-to-supersede-review" method="post">
+
+      {{ govukRadios({
+        name: "contentToSupersedeDecision",
+        fieldset: {
+          legend: {
+            text: "Would your content supersede this page?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "supersede",
+            text: "This existing page may be superseded by my content"
+          },
+          {
+            value: "keep",
+            text: "The existing page should remain"
+          },
+          {
+            value: "investigate",
+            text: "Further investigation is needed"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "contentToSupersedeNotes",
+        id: "contentToSupersedeNotes",
+        label: {
+          text: "Notes",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Add any useful context or follow-up actions."
+        },
+        rows: 5
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

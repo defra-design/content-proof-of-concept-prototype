@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add draft content – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/find-related-content" method="post">
+
+      <h1 class="govuk-heading-l">
+        Add draft content
+      </h1>
+
+      <p class="govuk-body">
+        Paste the draft content you want to check against existing GOV.UK content.
+      </p>
+
+      {{ govukTextarea({
+        name: "draftContent",
+        id: "draftContent",
+        label: {
+          text: "Draft content",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "You can paste a full draft or part of a draft."
+        },
+        rows: 18
+      }) }}
+
+      {{ govukButton({
+        text: "Find related content"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review potentially out-of-date content – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">
+      Potentially out-of-date
+    </span>
+
+    <h1 class="govuk-heading-l">
+      Trading seafood with EU countries
+    </h1>
+
+    <p class="govuk-body-l">
+      This page has freshness and content signals that suggest some
+      information may no longer be current.
+    </p>
+
+    <div class="govuk-inset-text">
+      These signals do not necessarily mean the page is out of date.
+      Review the evidence and make a decision.
+    </div>
+
+
+    <h2 class="govuk-heading-m">
+      Freshness evidence
+    </h2>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Last meaningful update
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 September 2019
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Time since meaningful update
+        </dt>
+        <dd class="govuk-summary-list__value">
+          More than 6 years
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Freshness category
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Potentially out of date
+        </dd>
+      </div>
+
+    </dl>
+
+    <p class="govuk-body">
+      Content that has not had a meaningful update for more than 2 years
+      is flagged for review.
+    </p>
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Content signals
+    </h2>
+
+    <p class="govuk-body">
+      The model also checked the body content for language and references
+      that may no longer be current.
+    </p>
+
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h3 class="govuk-summary-card__title">
+          Reference to preparing for Brexit
+        </h3>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <p class="govuk-body">
+          The page contains wording about preparing for Brexit and future
+          changes to trading arrangements.
+        </p>
+
+        <p class="govuk-body">
+          This language may describe a historic transition rather than
+          current guidance.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Usage
+    </h2>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Usage measure
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Unique page views
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Usage category
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Low
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Comparison
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Bottom 25% of Trade pages
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reporting period
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Last 12 months
+        </dd>
+      </div>
+
+    </dl>
+
+    <p class="govuk-body">
+      Usage is supporting information to help prioritise review.
+      It does not determine whether the content is out of date.
+    </p>
+
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">
+        View page on GOV.UK
+      </a>
+    </p>
+
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+    <form action="/complete-out-of-date-review" method="post">
+
+      {{ govukRadios({
+        name: "outOfDateDecision",
+        fieldset: {
+          legend: {
+            text: "Is this content out of date?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "update",
+            text: "The content needs updating"
+          },
+          {
+            value: "current",
+            text: "The content is still current"
+          },
+          {
+            value: "investigate",
+            text: "Further investigation is needed"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "outOfDateNotes",
+        id: "outOfDateNotes",
+        label: {
+          text: "Notes",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Add any useful context or follow-up actions."
+        },
+        rows: 5
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

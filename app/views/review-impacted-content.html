@@ -1,0 +1,231 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review potentially impacted content – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">
+      Page potentially impacted
+    </span>
+
+    <h1 class="govuk-heading-l">
+      Border control posts for animal products
+    </h1>
+
+    <p class="govuk-body-l">
+      This page contains information that may become inconsistent with a change
+      in the content you are working on.
+    </p>
+
+    <div class="govuk-inset-text">
+      This does not mean the page definitely needs changing.
+      Review the identified change and the potentially affected information.
+    </div>
+
+    <h2 class="govuk-heading-m">
+      Change identified in your content
+    </h2>
+
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h3 class="govuk-summary-card__title">
+          Notification period
+        </h3>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Previous requirement
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Notify the border control post at least 24 hours before arrival
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proposed requirement
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Notify the border control post at least 4 hours before arrival
+            </dd>
+          </div>
+
+        </dl>
+
+      </div>
+
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Why this page may be impacted
+    </h2>
+
+    <p class="govuk-body">
+      The model identified information on this page that appears to refer to
+      the requirement being changed.
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the page tells users when they need to notify a border control post</li>
+      <li>it currently refers to a 24-hour notification period</li>
+      <li>your proposed content changes that period to 4 hours</li>
+    </ul>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Potential inconsistency
+    </h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        If your proposed change is published, the two pages may give users
+        different instructions about when to notify a border control post.
+      </strong>
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Information to check
+    </h2>
+
+    <p class="govuk-body">
+      The following information on the existing page may need reviewing:
+    </p>
+
+    <div class="govuk-inset-text">
+      Notify the border control post at least 24 hours before the consignment arrives.
+    </div>
+
+    <p class="govuk-body">
+      This is the part of the page the model identified as potentially affected
+      by your proposed change.
+    </p>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Page information
+    </h2>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Guidance
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Last meaningful update
+        </dt>
+        <dd class="govuk-summary-list__value">
+          March 2024
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Usage category
+        </dt>
+        <dd class="govuk-summary-list__value">
+          High
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Usage measure
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Unique page views
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reporting period
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Last 12 months
+        </dd>
+      </div>
+
+    </dl>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">
+        View page on GOV.UK
+      </a>
+    </p>
+
+    <p class="govuk-body">
+      Usage can help prioritise which impacted pages to review first, but does
+      not determine whether a page needs changing.
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <form action="/complete-impacted-content-review" method="post">
+
+      {{ govukRadios({
+        name: "impactedContentDecision",
+        fieldset: {
+          legend: {
+            text: "Does this page need reviewing as part of your change?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "review",
+            text: "Yes, include this page in the review"
+          },
+          {
+            value: "no-action",
+            text: "No, this page is not affected"
+          },
+          {
+            value: "investigate",
+            text: "Further investigation is needed"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "impactedContentNotes",
+        id: "impactedContentNotes",
+        label: {
+          text: "Notes",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Add any useful context or follow-up actions."
+        },
+        rows: 5
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

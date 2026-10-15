@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add GOV.UK pages – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/find-related-content" method="post" enctype="multipart/form-data">
+
+      <h1 class="govuk-heading-l">
+        Add GOV.UK pages
+      </h1>
+
+      <p class="govuk-body">
+        Add the GOV.UK pages you want to check for related content.
+      </p>
+
+      {{ govukTextarea({
+        name: "govukUrls",
+        id: "govukUrls",
+        label: {
+          text: "Enter GOV.UK URLs",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "Enter one URL per line."
+        },
+        rows: 8
+      }) }}
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        or
+      </p>
+
+      {{ govukFileUpload({
+        id: "urlCsv",
+        name: "urlCsv",
+        label: {
+          text: "Upload a CSV file",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "The CSV should contain a list of GOV.UK URLs."
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Find related content"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

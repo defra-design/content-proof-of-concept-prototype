@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Upload a document – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/find-related-content" method="post" enctype="multipart/form-data">
+
+      <h1 class="govuk-heading-l">
+        Upload a policy or guidance document
+      </h1>
+
+      <p class="govuk-body">
+        Upload the document you want to check against existing GOV.UK content.
+      </p>
+
+      {{ govukFileUpload({
+        id: "contentDocument",
+        name: "contentDocument",
+        label: {
+          text: "Upload a document",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "For example, a policy document or guidance document."
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Find related content"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

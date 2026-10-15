@@ -1,0 +1,9 @@
+{
+  "serviceName": "GOV.UK content review",
+  "useServiceNavigation": true,
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}

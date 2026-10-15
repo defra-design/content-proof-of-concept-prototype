@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What content are you working with? – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/content-type" method="post">
+
+      {{ govukRadios({
+        name: "contentType",
+        fieldset: {
+          legend: {
+            text: "What content are you working with?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "document",
+            text: "A policy or guidance document"
+          },
+          {
+            value: "draft-content",
+            text: "Draft content"
+          },
+          {
+            value: "govuk-pages",
+            text: "Existing GOV.UK pages"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

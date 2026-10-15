@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Related content found – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Related content found
+    </h1>
+
+    <p class="govuk-body-l">
+      We identified <strong>63 GOV.UK pages</strong> that may be related to the content you provided.
+    </p>
+
+    <p class="govuk-body">
+      These pages can now be assessed to identify potential duplication,
+      superseded content and content that may be impacted by your changes.
+    </p>
+
+    {{ govukButton({
+      text: "Assess content",
+      href: "/review-findings"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
