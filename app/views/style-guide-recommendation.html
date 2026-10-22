@@ -1,0 +1,210 @@
+
+{% extends "layouts/main.html" %}
+
+{% set pageName="Review style guide recommendation" %}
+
+{% block content %}
+
+<a href="/style-guide-finding" class="govuk-back-link">Back to finding</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Style guide recommendation</span>
+
+    <h1 class="govuk-heading-xl">
+      Review recommendation
+    </h1>
+
+    <p class="govuk-body-l">
+      Review the proposed guidance and supporting evidence before deciding
+      whether it should progress through the style guide governance process.
+    </p>
+
+    <h2 class="govuk-heading-m">Finding</h2>
+
+    <p class="govuk-body">
+      <a href="/style-guide-finding" class="govuk-link">
+        Variation in terminology for food businesses
+      </a>
+    </p>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Category</dt>
+        <dd class="govuk-summary-list__value">Terminology</dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Occurrences identified</dt>
+        <dd class="govuk-summary-list__value">184 across 96 pages</dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Recommendation status</dt>
+        <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag govuk-tag--blue">Awaiting review</strong>
+        </dd>
+      </div>
+
+    </dl>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Proposed style guide addition
+    </h2>
+
+    <p class="govuk-body">
+      The AI has proposed the following wording based on the patterns
+      identified across the content estate.
+    </p>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h3 class="govuk-summary-card__title">Terminology for food businesses</h3>
+        <strong class="govuk-tag govuk-tag--yellow">Draft proposal</strong>
+      </div>
+      <div class="govuk-summary-card__content">
+
+        <h4 class="govuk-heading-s">Proposed guidance</h4>
+
+        <p class="govuk-body">
+          Use “food business” when referring to a business that handles,
+          prepares or sells food.
+        </p>
+
+        <p class="govuk-body">
+          Use more specific terms, such as “food business operator” or
+          “food establishment”, where they are required by legislation
+          or are more accurate for the context.
+        </p>
+
+        <h4 class="govuk-heading-s">Rationale</h4>
+
+        <p class="govuk-body">
+          Different terms appear across content that may address similar
+          audiences. Clearer guidance could help writers choose terminology
+          consistently while preserving important legal distinctions.
+        </p>
+
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Evidence supporting the recommendation
+    </h2>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Summary of identified usage
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Term</th>
+          <th scope="col" class="govuk-table__header">Occurrences</th>
+          <th scope="col" class="govuk-table__header">Pages</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Food business</th>
+          <td class="govuk-table__cell">86</td>
+          <td class="govuk-table__cell">51</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Food business operator</th>
+          <td class="govuk-table__cell">61</td>
+          <td class="govuk-table__cell">34</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Food establishment</th>
+          <td class="govuk-table__cell">37</td>
+          <td class="govuk-table__cell">22</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-hint">
+      These figures are illustrative prototype data. The terms may have
+      distinct legal meanings and require validation by the content team.
+    </p>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">
+      Before progressing
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Check whether the existing GOV.UK or Defra style guide already covers this topic.</li>
+      <li>Confirm that the proposed wording preserves legal and technical distinctions.</li>
+      <li>Review the examples to make sure they support the proposed rule.</li>
+      <li>Decide whether the recommendation is suitable for the existing governance process.</li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <form action="/style-guide-recommendation-complete" method="post">
+
+      {{ govukRadios({
+        name: "styleGuideRecommendationDecision",
+        fieldset: {
+          legend: {
+            text: "What should happen to this recommendation?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "recommend",
+            text: "Recommend for the style guide governance process"
+          },
+          {
+            value: "amend",
+            text: "Amend the proposed guidance"
+          },
+          {
+            value: "reject",
+            text: "Reject this recommendation"
+          },
+          {
+            value: "investigate",
+            text: "Further investigation is needed"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "styleGuideRecommendationAmendedWording",
+        id: "styleGuideRecommendationAmendedWording",
+        label: {
+          text: "Suggested wording",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "If you would amend the proposal, enter your suggested wording here."
+        },
+        rows: 5
+      }) }}
+
+      {{ govukTextarea({
+        name: "styleGuideRecommendationNotes",
+        id: "styleGuideRecommendationNotes",
+        label: {
+          text: "Review notes",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "Record your rationale, evidence or follow-up actions."
+        },
+        rows: 4
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
