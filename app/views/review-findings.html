@@ -1,3 +1,4 @@
+
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
@@ -9,12 +10,9 @@
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-l">
-      Review findings
-    </h1>
+    <h1 class="govuk-heading-l">Review findings</h1>
 
     <p class="govuk-body-l">
       Work through each finding and decide whether the content needs action.
@@ -23,37 +21,23 @@
     <dl class="govuk-summary-list govuk-summary-list--no-border">
 
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Pages provided
-        </dt>
-        <dd class="govuk-summary-list__value">
-          14
-        </dd>
+        <dt class="govuk-summary-list__key">Pages provided</dt>
+        <dd class="govuk-summary-list__value">14</dd>
       </div>
 
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Related pages assessed
-        </dt>
-        <dd class="govuk-summary-list__value">
-          63
-        </dd>
+        <dt class="govuk-summary-list__key">Related pages assessed</dt>
+        <dd class="govuk-summary-list__value">63</dd>
       </div>
 
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Findings
-        </dt>
-        <dd class="govuk-summary-list__value">
-          7
-        </dd>
+        <dt class="govuk-summary-list__key">Findings</dt>
+        <dd class="govuk-summary-list__value">7</dd>
       </div>
 
     </dl>
 
-    <h2 class="govuk-heading-m">
-      Review progress
-    </h2>
+    <h2 class="govuk-heading-m">Review progress</h2>
 
     <p class="govuk-body">
       <strong>1 of 7 findings reviewed</strong>
@@ -67,158 +51,237 @@
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <h2 class="govuk-heading-m">
-      Potential duplication
-    </h2>
+    <h2 class="govuk-heading-m">Findings</h2>
 
     <p class="govuk-body">
-      These groups contain existing GOV.UK pages that are highly similar
-      to the content you provided and may contain duplicated body content.
+      The assessment has identified potential duplication, content that may
+      be superseded, and existing pages that could be impacted by the
+      content you provided.
     </p>
 
-    {{ govukTaskList({
-      idPrefix: "duplication",
-      items: [
-        {
-          title: {
-            html: '<strong>Review group 1</strong>'
-          },
-          href: "/review-group",
-          hint: {
-            html: '3 pages<br>High semantic similarity · 0.94<br>3 potentially duplicated passages identified<br>Usage: low · bottom 25% of Trade pages · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "In progress",
-              classes: "govuk-tag--blue"
-            }
-          }
-        },
-        {
-          title: {
-            html: '<strong>Review group 2</strong>'
-          },
-          href: "#",
-          hint: {
-            html: '3 pages<br>High semantic similarity · 0.91<br>2 potentially duplicated passages identified<br>Usage: medium · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        }
-      ]
-    }) }}
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="finding-type-filter">
+        Filter by type
+      </label>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Content that may be superseded
-    </h2>
+      <select class="govuk-select" id="finding-type-filter">
+        <option value="all">All results</option>
+        <option value="duplicate">Duplicate</option>
+        <option value="superseded">Superseded</option>
+        <option value="impacted">Impacted</option>
+      </select>
+    </div>
 
-    <p class="govuk-body">
-      These existing pages are highly similar to the content you provided
-      and may no longer be needed if your content is published or updated.
+    <p class="govuk-body" id="finding-count">
+      Showing 7 findings
     </p>
 
-    {{ govukTaskList({
-      idPrefix: "superseded",
-      items: [
-        {
-          title: {
-            html: '<strong>Import fish from the EU</strong>'
-          },
-          href: "/review-content-to-supersede",
-          hint: {
-            html: 'High semantic similarity · 0.93<br>4 potentially duplicated passages identified<br>This page last meaningfully updated in 2021<br>Usage: low · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        },
-        {
-          title: {
-            html: '<strong>Health certificates for fish imports</strong>'
-          },
-          href: "#",
-          hint: {
-            html: 'High semantic similarity · 0.91<br>3 potentially duplicated passages identified<br>This page last meaningfully updated in 2020<br>Usage: medium · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        }
-      ]
-    }) }}
+    <div class="govuk-table__container">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Finding</th>
+            <th scope="col" class="govuk-table__header">Type</th>
+            <th scope="col" class="govuk-table__header">AI assessment</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Pages potentially impacted
-    </h2>
+        <tbody class="govuk-table__body">
 
-    <p class="govuk-body">
-      These pages contain information that may become incorrect or inconsistent
-      because of changes in the content you provided.
-    </p>
+          <tr class="govuk-table__row" data-finding-type="duplicate">
+            <th scope="row" class="govuk-table__header">
+              Review group 1
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                3 pages
+              </span>
+            </th>
+            <td class="govuk-table__cell">Duplicate</td>
+            <td class="govuk-table__cell">
+              High content overlap
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                94% similarity · 3 matching passages
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">In progress</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-group">
+                More details
+                <span class="govuk-visually-hidden">for review group 1</span>
+              </a>
+            </td>
+          </tr>
 
-    {{ govukTaskList({
-      idPrefix: "impacted",
-      items: [
-        {
-          title: {
-            html: '<strong>Border control posts for animal products</strong>'
-          },
-          href: "/review-impacted-content",
-          hint: {
-            html: 'May contain an outdated notification period<br>Your content changes the notification period from 24 hours to 4 hours<br>Usage: high · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        },
-        {
-          title: {
-            html: '<strong>Notify authorities about animal product imports</strong>'
-          },
-          href: "#",
-          hint: {
-            html: 'May contain inconsistent notification instructions<br>Your content changes when importers need to notify authorities<br>Usage: medium · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        },
-        {
-          title: {
-            html: '<strong>Importing products of animal origin</strong>'
-          },
-          href: "#",
-          hint: {
-            html: 'May reference requirements that are changing<br>Your content changes the certification process for some fish imports<br>Usage: medium · last 12 months'
-          },
-          status: {
-            tag: {
-              text: "Not reviewed",
-              classes: "govuk-tag--grey"
-            }
-          }
-        }
-      ]
-    }) }}
+          <tr class="govuk-table__row" data-finding-type="duplicate">
+            <th scope="row" class="govuk-table__header">
+              Review group 2
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                3 pages
+              </span>
+            </th>
+            <td class="govuk-table__cell">Duplicate</td>
+            <td class="govuk-table__cell">
+              Potential duplication
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                91% similarity · 2 matching passages
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-group">
+                More details
+                <span class="govuk-visually-hidden">for review group 2</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-finding-type="superseded">
+            <th scope="row" class="govuk-table__header">
+              Import fish from the EU
+            </th>
+            <td class="govuk-table__cell">Superseded</td>
+            <td class="govuk-table__cell">
+              May be superseded
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                Last meaningfully updated in 2021 · 4 matching passages
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-content-to-supersede">
+                More details
+                <span class="govuk-visually-hidden">for Import fish from the EU</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-finding-type="superseded">
+            <th scope="row" class="govuk-table__header">
+              Health certificates for fish imports
+            </th>
+            <td class="govuk-table__cell">Superseded</td>
+            <td class="govuk-table__cell">
+              Possible replacement identified
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                Last meaningfully updated in 2020 · 3 matching passages
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-content-to-supersede">
+                More details
+                <span class="govuk-visually-hidden">for Health certificates for fish imports</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-finding-type="impacted">
+            <th scope="row" class="govuk-table__header">
+              Border control posts for animal products
+            </th>
+            <td class="govuk-table__cell">Impacted</td>
+            <td class="govuk-table__cell">
+              Potentially outdated instructions
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                Notification period changes from 24 hours to 4 hours
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-impacted-content">
+                More details
+                <span class="govuk-visually-hidden">for Border control posts for animal products</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-finding-type="impacted">
+            <th scope="row" class="govuk-table__header">
+              Notify authorities about animal product imports
+            </th>
+            <td class="govuk-table__cell">Impacted</td>
+            <td class="govuk-table__cell">
+              Potentially inconsistent instructions
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                Changes to when importers must notify authorities
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-impacted-content">
+                More details
+                <span class="govuk-visually-hidden">for Notify authorities about animal product imports</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-finding-type="impacted">
+            <th scope="row" class="govuk-table__header">
+              Importing products of animal origin
+            </th>
+            <td class="govuk-table__cell">Impacted</td>
+            <td class="govuk-table__cell">
+              May require updating
+              <span class="govuk-hint govuk-!-margin-bottom-0">
+                Certification requirements for some fish imports are changing
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">Not reviewed</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/review-impacted-content">
+                More details
+                <span class="govuk-visually-hidden">for Importing products of animal origin</span>
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
 
   </div>
-
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var filter = document.getElementById('finding-type-filter')
+    var rows = document.querySelectorAll('[data-finding-type]')
+    var count = document.getElementById('finding-count')
+
+    filter.addEventListener('change', function () {
+      var selectedType = filter.value
+      var visibleCount = 0
+
+      rows.forEach(function (row) {
+        var show = selectedType === 'all' ||
+          row.getAttribute('data-finding-type') === selectedType
+
+        row.hidden = !show
+
+        if (show) {
+          visibleCount++
+        }
+      })
+
+      count.textContent = 'Showing ' + visibleCount +
+        (visibleCount === 1 ? ' finding' : ' findings')
+    })
+  })
+</script>
 
 {% endblock %}

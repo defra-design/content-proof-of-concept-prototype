@@ -1,242 +1,255 @@
+```html
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review potential duplication – {{ serviceName }} – GOV.UK
+  Review duplication assessment – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block content %}
 
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+<a href="/review-existing-findings" class="govuk-back-link">Back to review findings</a>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    <span class="govuk-caption-l">
-      Potential duplication
-    </span>
-
-    <h1 class="govuk-heading-l">
-      Review group 1
-    </h1>
+    <span class="govuk-caption-l">Potential content duplication</span>
+    <h1 class="govuk-heading-l">Exporting fish to the EU and preparing fish exports for EU border checks</h1>
 
     <p class="govuk-body-l">
-      These 3 pages are highly similar and contain body content that may be duplicated.
+      These pages share information about exporting fish to the EU, but they may serve different user needs. The assessment recommends reviewing the overlap rather than automatically merging the pages.
     </p>
+
+    <h2 class="govuk-heading-m">Duplication assessment</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">AI assessment</dt>
+        <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag govuk-tag--blue">High overlap but distinct</strong>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Cosine similarity</dt>
+        <dd class="govuk-summary-list__value">0.87</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Page A overlap</dt>
+        <dd class="govuk-summary-list__value">24.6%</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Page B overlap</dt>
+        <dd class="govuk-summary-list__value">41.2%</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Matching passages</dt>
+        <dd class="govuk-summary-list__value">8</dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">AI assessment and reasoning</h2>
 
     <div class="govuk-inset-text">
-      Similarity does not necessarily mean content should be removed or merged.
-      Review the evidence and make a decision.
+      <p class="govuk-body">
+        <strong>High overlap but distinct</strong>
+      </p>
+      <p class="govuk-body">
+        The pages share substantial information about export health certificates, checking consignments, preparing documentation and meeting EU border requirements. Several passages use identical or closely related wording.
+      </p>
+      <p class="govuk-body">
+        However, the pages have different apparent purposes. “Exporting fish to the EU” provides broader guidance for someone planning an export. “Preparing fish exports for EU border checks” focuses on the checks and preparation needed for a consignment.
+      </p>
+      <p class="govuk-body">
+        The overlap may indicate that some procedural information is repeated unnecessarily. It does not establish that the pages are interchangeable or that one should be removed.
+      </p>
     </div>
 
-    <h2 class="govuk-heading-m">
-      Why this group was flagged
-    </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Content review</h2>
 
-    <dl class="govuk-summary-list govuk-summary-list--no-border">
-
+    <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Similarity
-        </dt>
+        <dt class="govuk-summary-list__key">Audience similarity</dt>
+        <dd class="govuk-summary-list__value">High</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Audience reasoning</dt>
         <dd class="govuk-summary-list__value">
-          High
+          Both pages are aimed at fish exporters and businesses preparing consignments for the EU. Users may need both the overview and the specific border-check instructions.
         </dd>
       </div>
-
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Semantic similarity
-        </dt>
+        <dt class="govuk-summary-list__key">Purpose category</dt>
+        <dd class="govuk-summary-list__value">Related content with overlapping guidance</dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Purpose reasoning</dt>
         <dd class="govuk-summary-list__value">
-          0.94
+          One page covers the wider export process; the other concentrates on border checks. Shared procedural explanations may be candidates for a single authoritative source, while the distinct instructions should remain easy to find.
         </dd>
       </div>
-
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          High similarity range
-        </dt>
+        <dt class="govuk-summary-list__key">Recommendation</dt>
         <dd class="govuk-summary-list__value">
-          0.90 to 1.00
+          <strong>Review shared passages</strong>
+          <p class="govuk-body govuk-!-margin-top-2">
+            Check the eight matched passages, identify which information genuinely needs to appear on both pages, and link to authoritative instructions where appropriate. Keep the pages separate if they support different tasks.
+          </p>
         </dd>
       </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Body-copy overlap
-        </dt>
-        <dd class="govuk-summary-list__value">
-          3 potentially duplicated passages
-        </dd>
-      </div>
-
     </dl>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Potentially duplicated content
-    </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Compare the two pages</h2>
 
-    <p class="govuk-body">
-      The body-copy comparison identified:
-    </p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>3 potentially duplicated passages</li>
-      <li>the longest matching passage contains 26 words</li>
-    </ul>
-
-    <p class="govuk-body">
-      Comparing body copy helps distinguish duplicated content from pages
-      that simply cover similar topics.
-    </p>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Why these pages appear similar
-    </h2>
-
-    <p class="govuk-body">
-      The model identified the following similarities:
-    </p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>all 3 pages are aimed at businesses importing fish into Great Britain</li>
-      <li>they address the same or closely related user need</li>
-      <li>they describe health certification requirements</li>
-      <li>they cover border checks and import controls</li>
-      <li>they contain similar steps and guidance for importers</li>
-    </ul>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Usage
-    </h2>
-
-    <dl class="govuk-summary-list govuk-summary-list--no-border">
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Usage measure
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Unique page views
-        </dd>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Page A</h3>
+          </div>
+          <div class="govuk-summary-card__content">
+            <h4 class="govuk-heading-s">Exporting fish to the EU</h4>
+            <p class="govuk-body">
+              Overview of the export process, including certificates, documentation and the main steps businesses need to follow.
+            </p>
+            <dl class="govuk-summary-list govuk-summary-list--no-border">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Last meaningful update</dt>
+                <dd class="govuk-summary-list__value">18 February 2025</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Freshness</dt>
+                <dd class="govuk-summary-list__value">Current</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Sessions in last year</dt>
+                <dd class="govuk-summary-list__value">4,820</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Bounce rate</dt>
+                <dd class="govuk-summary-list__value">48%</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Average engagement</dt>
+                <dd class="govuk-summary-list__value">1 minute 18 seconds</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Usage assessment</dt>
+                <dd class="govuk-summary-list__value">High usage</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
 
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Usage category
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Low
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Comparison
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Bottom 25% of Trade pages
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Reporting period
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Last 12 months
-        </dd>
-      </div>
-
-    </dl>
-
-    <p class="govuk-body">
-      Usage is supporting information to help prioritise review.
-      It does not determine whether the content is duplicated.
-    </p>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Pages in this group
-    </h2>
-
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h3 class="govuk-summary-card__title">
-          Import fish from the EU
-        </h3>
-      </div>
-      <div class="govuk-summary-card__content">
-        <p class="govuk-body">
-          Last meaningful update: June 2021<br>
-          Document type: Guidance<br>
-          Usage: Low · last 12 months
-        </p>
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">View page on GOV.UK</a>
-        </p>
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Page B</h3>
+          </div>
+          <div class="govuk-summary-card__content">
+            <h4 class="govuk-heading-s">Preparing fish exports for EU border checks</h4>
+            <p class="govuk-body">
+              Task-focused instructions covering consignment preparation, required checks and documentation at the border.
+            </p>
+            <dl class="govuk-summary-list govuk-summary-list--no-border">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Last meaningful update</dt>
+                <dd class="govuk-summary-list__value">9 March 2026</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Freshness</dt>
+                <dd class="govuk-summary-list__value">Current</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Sessions in last year</dt>
+                <dd class="govuk-summary-list__value">2,140</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Bounce rate</dt>
+                <dd class="govuk-summary-list__value">36%</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Average engagement</dt>
+                <dd class="govuk-summary-list__value">2 minutes 6 seconds</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Usage assessment</dt>
+                <dd class="govuk-summary-list__value">Medium usage</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h3 class="govuk-summary-card__title">
-          Fish import requirements
-        </h3>
-      </div>
-      <div class="govuk-summary-card__content">
-        <p class="govuk-body">
-          Last meaningful update: February 2025<br>
-          Document type: Guidance<br>
-          Usage: Medium · last 12 months
-        </p>
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">View page on GOV.UK</a>
-        </p>
-      </div>
-    </div>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Evidence from matching passages</h2>
 
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h3 class="govuk-summary-card__title">
-          Importing fish into Great Britain
-        </h3>
-      </div>
-      <div class="govuk-summary-card__content">
-        <p class="govuk-body">
-          Last meaningful update: November 2024<br>
-          Document type: Guidance<br>
-          Usage: Medium · last 12 months
-        </p>
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">View page on GOV.UK</a>
-        </p>
-      </div>
+    <p class="govuk-body">
+      The passages below show where the pages overlap and what a reviewer should check.
+    </p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Topic</th>
+          <th scope="col" class="govuk-table__header">Overlap</th>
+          <th scope="col" class="govuk-table__header">Assessment</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Export health certificates</th>
+          <td class="govuk-table__cell">94%</td>
+          <td class="govuk-table__cell">Check whether the same requirements are explained twice.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Consignment documentation</th>
+          <td class="govuk-table__cell">88%</td>
+          <td class="govuk-table__cell">Keep task-specific instructions; link to a single source for general requirements.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Border checks</th>
+          <td class="govuk-table__cell">81%</td>
+          <td class="govuk-table__cell">Confirm the overview gives enough detail without repeating the full procedure.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Further guidance</th>
+          <td class="govuk-table__cell">76%</td>
+          <td class="govuk-table__cell">Check whether both pages direct users to the same authoritative guidance.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-inset-text">
+      <strong>Assessment to consider:</strong>
+      The pages appear to serve different tasks. Review the shared passages and reduce unnecessary repetition without removing information users need to complete either task.
     </div>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <form action="/complete-review-group" method="post">
-
       {{ govukRadios({
         name: "duplicationDecision",
         fieldset: {
           legend: {
-            text: "What do you think about this group?",
+            text: "What should happen to these pages?",
             classes: "govuk-fieldset__legend--m"
           }
         },
+        hint: {
+          text: "Use the assessment as evidence, then record your own decision."
+        },
         items: [
           {
-            value: "duplicate",
-            text: "The content appears to be duplicated"
+            value: "consolidate",
+            text: "Review shared content for consolidation"
           },
           {
-            value: "separate",
-            text: "The pages should remain separate"
+            value: "keep-separate",
+            text: "Keep both pages separate"
           },
           {
             value: "investigate",
-            text: "Further investigation is needed"
+            text: "Investigate further before deciding"
           }
         ]
       }) }}
@@ -245,11 +258,8 @@
         name: "duplicationNotes",
         id: "duplicationNotes",
         label: {
-          text: "Notes",
+          text: "Notes and follow-up actions",
           classes: "govuk-label--s"
-        },
-        hint: {
-          text: "Add any useful context or follow-up actions."
         },
         rows: 5
       }) }}
@@ -257,10 +267,10 @@
       {{ govukButton({
         text: "Save and continue"
       }) }}
-
     </form>
 
   </div>
 </div>
 
 {% endblock %}
+```

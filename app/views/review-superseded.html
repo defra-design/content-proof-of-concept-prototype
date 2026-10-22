@@ -1,278 +1,240 @@
+```html
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review potentially superseded content – {{ serviceName }} – GOV.UK
+  Review freshness assessment – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block content %}
 
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+<a href="/review-existing-findings" class="govuk-back-link">Back to review findings</a>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    <span class="govuk-caption-l">
-      Potentially superseded
-    </span>
-
-    <h1 class="govuk-heading-l">
-      Import fish from the EU
-    </h1>
+    <span class="govuk-caption-l">Potentially superseded content</span>
+    <h1 class="govuk-heading-l">Import fish from the EU</h1>
 
     <p class="govuk-body-l">
-      This page is highly similar to a newer page and may no longer be needed.
+      This page may have been superseded by newer guidance. Review the freshness,
+      content overlap and usage evidence before deciding what should happen next.
     </p>
 
-    <div class="govuk-inset-text">
-      Similarity, duplicated body content and a newer publication date do not
-      necessarily mean a page has been superseded. Review the evidence and
-      make a decision.
-    </div>
+    <h2 class="govuk-heading-m">Freshness assessment</h2>
 
+    <p>
+      <strong class="govuk-tag govuk-tag--red">Potentially out of date</strong>
+    </p>
 
-    <h2 class="govuk-heading-m">
-      Why this page was flagged
-    </h2>
+    <p class="govuk-body">
+      This page may no longer reflect current fish import requirements. It has
+      not had a meaningful update since June 2021, and a similar page was updated
+      in February 2025.
+    </p>
 
-    <dl class="govuk-summary-list govuk-summary-list--no-border">
-
+    <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Similarity
-        </dt>
-        <dd class="govuk-summary-list__value">
-          High
-        </dd>
+        <dt class="govuk-summary-list__key">Last meaningful update</dt>
+        <dd class="govuk-summary-list__value">June 2021</dd>
       </div>
-
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Semantic similarity
-        </dt>
-        <dd class="govuk-summary-list__value">
-          0.93
-        </dd>
+        <dt class="govuk-summary-list__key">Time since meaningful update</dt>
+        <dd class="govuk-summary-list__value">5 years and 4 months</dd>
       </div>
-
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Body-copy overlap
-        </dt>
-        <dd class="govuk-summary-list__value">
-          4 potentially duplicated passages
-        </dd>
+        <dt class="govuk-summary-list__key">Assessment confidence</dt>
+        <dd class="govuk-summary-list__value">High (91%)</dd>
       </div>
-
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Possible replacement
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Fish import requirements
-        </dd>
+        <dt class="govuk-summary-list__key">Possible replacement</dt>
+        <dd class="govuk-summary-list__value">Fish import requirements</dd>
       </div>
-
     </dl>
 
+    <div class="govuk-inset-text">
+      A newer page and a high similarity score do not prove that the existing
+      page is no longer needed. Check the content and user needs before deciding.
+    </div>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Why these pages appear similar
-    </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Why this page was flagged</h2>
 
     <p class="govuk-body">
-      The model identified the following similarities:
+      The assessment found several signals that the guidance may need review:
     </p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>both pages are aimed at businesses importing fish into Great Britain</li>
-      <li>they address the same or closely related user need</li>
-      <li>both describe health certification requirements</li>
-      <li>both cover notification and border requirements</li>
-      <li>they contain similar guidance and steps for importers</li>
+      <li>The existing page was last meaningfully updated in June 2021.</li>
+      <li>The possible replacement was meaningfully updated in February 2025.</li>
+      <li>Both pages cover health certification and border requirements for fish imports.</li>
+      <li>The pages share 4 potentially duplicated passages.</li>
+      <li>The older page has low usage compared with medium usage for the newer page.</li>
     </ul>
 
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Body-copy overlap
-    </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Content flagged for review</h2>
 
     <p class="govuk-body">
-      The body-copy comparison identified:
+      These passages may refer to processes or requirements that need checking
+      against the newer guidance.
     </p>
 
-    <ul class="govuk-list govuk-list--bullet">
-      <li>4 potentially duplicated passages</li>
-      <li>the longest matching passage contains 31 words</li>
-    </ul>
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Flagged content and confidence
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Content area</th>
+          <th scope="col" class="govuk-table__header">Reason for review</th>
+          <th scope="col" class="govuk-table__header">Confidence</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Health certification</td>
+          <td class="govuk-table__cell">
+            Requirements may have changed since the last meaningful update.
+          </td>
+          <td class="govuk-table__cell">94%</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Import notifications</td>
+          <td class="govuk-table__cell">
+            The newer guidance describes a more recent notification process.
+          </td>
+          <td class="govuk-table__cell">89%</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Border checks</td>
+          <td class="govuk-table__cell">
+            The older page may not reflect the latest border control arrangements.
+          </td>
+          <td class="govuk-table__cell">86%</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Links to further guidance</td>
+          <td class="govuk-table__cell">
+            Check that referenced processes and links remain current.
+          </td>
+          <td class="govuk-table__cell">78%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">AI assessment</h2>
 
     <p class="govuk-body">
-      This overlap supports the possibility that the newer page now covers
-      information previously provided by the existing page.
+      The page is a strong candidate for review because its core subject overlaps
+      with a more recently updated page. The age of the content and differences
+      in usage strengthen the case for investigation, but do not establish that
+      every requirement has been replaced.
     </p>
 
+    <h3 class="govuk-heading-s">Recommended action</h3>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Compare the pages
-    </h2>
+    <p class="govuk-body">
+      Compare the health certification, notification and border-check instructions
+      with the newer guidance. If the newer page fully meets the same user need,
+      consolidate any unique useful information and consider redirecting the older
+      page. If distinct requirements remain, update the older page instead.
+    </p>
 
-    <div class="govuk-summary-card">
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Compare the two pages</h2>
 
-      <div class="govuk-summary-card__title-wrapper">
-        <h3 class="govuk-summary-card__title">
-          Existing page
-        </h3>
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Existing page</h3>
+          </div>
+          <div class="govuk-summary-card__content">
+            <h4 class="govuk-heading-s">Import fish from the EU</h4>
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">View page on GOV.UK</a>
+            </p>
+
+            <dl class="govuk-summary-list govuk-summary-list--no-border">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Last meaningful update</dt>
+                <dd class="govuk-summary-list__value">June 2021</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Freshness</dt>
+                <dd class="govuk-summary-list__value">Potentially out of date</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Usage category</dt>
+                <dd class="govuk-summary-list__value">Low</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Sessions, last 12 months</dt>
+                <dd class="govuk-summary-list__value">124</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Bounce rate</dt>
+                <dd class="govuk-summary-list__value">72%</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Average engagement</dt>
+                <dd class="govuk-summary-list__value">34 seconds</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
 
-      <div class="govuk-summary-card__content">
-
-        <dl class="govuk-summary-list govuk-summary-list--no-border">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Page
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Import fish from the EU
-            </dd>
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Possible replacement</h3>
           </div>
+          <div class="govuk-summary-card__content">
+            <h4 class="govuk-heading-s">Fish import requirements</h4>
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">View page on GOV.UK</a>
+            </p>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Last meaningful update
-            </dt>
-            <dd class="govuk-summary-list__value">
-              June 2021
-            </dd>
+            <dl class="govuk-summary-list govuk-summary-list--no-border">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Last meaningful update</dt>
+                <dd class="govuk-summary-list__value">February 2025</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Freshness</dt>
+                <dd class="govuk-summary-list__value">Current</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Usage category</dt>
+                <dd class="govuk-summary-list__value">Medium</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Sessions, last 12 months</dt>
+                <dd class="govuk-summary-list__value">1,860</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Bounce rate</dt>
+                <dd class="govuk-summary-list__value">41%</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Average engagement</dt>
+                <dd class="govuk-summary-list__value">1 minute 12 seconds</dd>
+              </div>
+            </dl>
           </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Usage category
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Low
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Usage measure
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Unique page views
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Reporting period
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Last 12 months
-            </dd>
-          </div>
-
-        </dl>
-
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">
-            View page on GOV.UK
-          </a>
-        </p>
-
+        </div>
       </div>
 
     </div>
 
-
-    <div class="govuk-summary-card">
-
-      <div class="govuk-summary-card__title-wrapper">
-        <h3 class="govuk-summary-card__title">
-          Possible replacement
-        </h3>
-      </div>
-
-      <div class="govuk-summary-card__content">
-
-        <dl class="govuk-summary-list govuk-summary-list--no-border">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Page
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Fish import requirements
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Last meaningful update
-            </dt>
-            <dd class="govuk-summary-list__value">
-              February 2025
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Usage category
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Medium
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Usage measure
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Unique page views
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Reporting period
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Last 12 months
-            </dd>
-          </div>
-
-        </dl>
-
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">
-            View page on GOV.UK
-          </a>
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-8">
-      Supporting context
-    </h2>
+    <h2 class="govuk-heading-m govuk-!-margin-top-8">Usage and engagement</h2>
 
     <p class="govuk-body">
-      The existing page was last meaningfully updated in 2021. The possible
-      replacement was last meaningfully updated in 2025 and has higher usage
-      based on unique page views over the last 12 months.
+      The newer page receives more traffic and has a lower bounce rate. These
+      measures help prioritise review but cannot, on their own, establish that
+      the older content is no longer needed.
     </p>
-
-    <p class="govuk-body">
-      These signals support review but do not determine whether the existing
-      page has been superseded.
-    </p>
-
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
 
     <form action="/complete-superseded-review" method="post">
 
@@ -280,18 +242,25 @@
         name: "supersededDecision",
         fieldset: {
           legend: {
-            text: "Has this page been superseded?",
+            text: "What should happen to this page?",
             classes: "govuk-fieldset__legend--m"
           }
+        },
+        hint: {
+          text: "Record your decision after reviewing the evidence and comparing both pages."
         },
         items: [
           {
             value: "superseded",
-            text: "This page appears to have been superseded"
+            text: "The page appears to have been superseded"
           },
           {
-            value: "both-needed",
-            text: "Both pages are still needed"
+            value: "retain",
+            text: "The page is still needed"
+          },
+          {
+            value: "update",
+            text: "The page needs updating"
           },
           {
             value: "investigate",
@@ -304,11 +273,11 @@
         name: "supersededNotes",
         id: "supersededNotes",
         label: {
-          text: "Notes",
+          text: "Notes and follow-up actions",
           classes: "govuk-label--s"
         },
         hint: {
-          text: "Add any useful context or follow-up actions."
+          text: "Record any unique information, changes needed or follow-up actions."
         },
         rows: 5
       }) }}
@@ -323,3 +292,4 @@
 </div>
 
 {% endblock %}
+```
