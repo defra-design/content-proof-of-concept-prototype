@@ -1,19 +1,41 @@
+
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% set pageName="GOV.UK prototypes" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      GOV.UK prototypes
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <p class="govuk-body">
+      Choose a prototype to explore.
+    </p>
+
+    <a href="/what-are-you-trying-to-do" role="button" draggable="false"
+       class="govuk-button govuk-button--start">
+      Start content review prototype
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg"
+           width="17.5" height="17.5" viewBox="0 0 33 33"
+           aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 16.5L13 33H0l20-16.5z"/>
+      </svg>
+    </a>
+
+    <a href="/style-guide" role="button" draggable="false"
+       class="govuk-button govuk-button--start">
+      Start style guide prototype
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg"
+           width="17.5" height="17.5" viewBox="0 0 33 33"
+           aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 16.5L13 33H0l20-16.5z"/>
+      </svg>
+    </a>
+
   </div>
 </div>
 
